@@ -1,0 +1,64 @@
+
+:root {
+  --navigationHeight: 35px;
+  --vh: 1vh;
+  --viewHeight: calc(calc(var(--vh) * 100) - var(--navigationHeight));
+  --miDarkBackground: #333;
+  --miDarkBackgroundTransparent: #333333ee;
+}
+
+@import "clean.scss";
+@import "../../../utils/styles/scroll.scss";
+
+
+body.mobile {
+  #ui-left,
+  #ui-top,
+  #ui-bottom {
+    display: none;
+  }
+
+  #ui-right {
+    width: 100%;
+    flex-grow: 1;
+
+    #sidebar {
+      width: calc(100% - 5px);
+
+      #sidebar-tabs {
+        --sidebar-tab-height: 46px;
+        box-shadow: none;
+        border-bottom: 0;
+
+        &.tabs {
+          overflow: scroll;
+          justify-content: space-between;
+          @include no-scroll;
+        }
+
+        a.collapse {
+          display: none;
+        }
+
+        a.item {
+          align-items: center;
+          display: flex;
+          padding: 10px;
+
+          i {
+            font-size: x-large;
+          }
+        }
+      }
+
+      #chat-controls {
+        flex: 0 0 36px;
+        margin: 0 6px;
+        align-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@import "integrations/index.scss";
